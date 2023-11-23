@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map Visualization</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css" />
+</head>
+<body>
+     
+    <header>
+        <nav class="header__navBar">
+            <ul>
+                <li>
+                    <a href="/">
+                        <img src="https://cdn0.iconfinder.com/data/icons/cinema-color-line-1/64/movie_film_cinema_search-512.png"/>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.kaggle.com/datasets/harshitshankhdhar/imdb-dataset-of-top-1000-movies-and-tv-shows" >
+                        <img src="https://cdn4.iconfinder.com/data/icons/logos-and-brands/512/189_Kaggle_logo_logos-512.png"/>
+                        <span>Kaggle dataset</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/dashboard">
+                        <img src="https://cdn1.iconfinder.com/data/icons/charts-analytics/128/Charts_Analytics_kpi_dashboard_report_3_bar_line-512.png"/>
+                        <span>Chart Visualisiation</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/map">
+                    <img src="https://cdn3.iconfinder.com/data/icons/map-navigation-8/512/z5-map-location-pin-512.png"/>
+                        <span>Geo api Map</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/zayanx7/Project_3">
+                        <img src="https://cdn1.iconfinder.com/data/icons/logotypes/32/github-512.png"/>
+                        <span>Our Github</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+
+
+
+
+
+
+    <div id="map" ></div>
+
+    <!-- Leaflet JavaScript -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
+
+    <script>
+        // Load Leaflet map
+        var map = L.map('map').setView([0, 0], 2);
+
+        // Add OpenStreetMap tiles
+        // L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        //     attribution: '© OpenStreetMap contributors'
+        // }).addTo(map);
+        L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {
+    attribution: 'Map tiles by CartoDB, under CC BY 3.0. Data by OpenStreetMap, under ODbL.'
+}).addTo(map);
+
+     // chat
+        var markerIcon = L.divIcon({
+    className: 'custom-marker black-marker',
+    html:  '<i class="fas fa-map-marker-alt" style="color: black;"></i>',
+    iconSize: [30, 30],
+    iconAnchor: [15, 30],
+    popupAnchor: [0, -30]
+});
+        // adding markers for animation
+        var markers = L.markerClusterGroup({ animateAddingMarkers: true });
+        // Add markers for each location
+        var locationData = {{ location_data | tojson }};
+        locationData.forEach(function (location) {
+            var marker = L.marker([location['Latitude'], location['Longitude']],{ icon: markerIcon })
+                .bindPopup(
+                    `<b>Area:</b> ${location['Area']}<br>` +
+                    `<b>1 Release:</b> ${location['#1 Release']}<br>` +
+                    `<b>Weekend Gross:</b> ${location['Weekend Gross']}`
+                )
+                markers.addLayer(marker);
+               // .addTo(map);
+        });
+        map.addLayer(markers);
+    </script>
+</body>
+</html>

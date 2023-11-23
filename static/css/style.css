@@ -1,0 +1,278 @@
+/*      Initial configurations      */
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    font-family: 'Poppins',sans-serif;
+}
+
+.hero{
+    width:100%;
+    min-height: 100vh;
+    background: linear-gradient(45deg, #08001f,#30197d);
+    color: #fff;
+    position: relative; 
+
+}
+
+.header__navBar{
+    width:100%;
+    min-height: 10vh;
+    background: linear-gradient(45deg, #08001f,#2e1197);
+    color: #fff;
+    position: relative; 
+
+
+
+}
+
+.data-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+
+/* Add these styles for search bar hover and centering */
+form:hover {
+    background-color: var(--contrast); /* Change the color to your preference */
+}
+
+/* Adjust the form styles for better central positioning */
+form {
+    border: 2px solid var(--txt-color); /* Add outline */
+    padding: 20px; /* Add padding for better appearance */
+    border-radius: 10px; /* Add border-radius for rounded corners */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+     /* Adjust the margin to move it down or up */
+
+}
+
+/* Adjust the label margin for better spacing */
+label {
+    display: block;
+    margin: 10px 0; /* Adjust the margin as needed */
+}
+
+/* Adjust the input styles for better spacing and hover effect */
+input {
+    text-align: end;
+    padding: 10px; /* Adjust the padding as needed */
+    border: none; /* Remove border for the input */
+    border-bottom: 1px solid var(--txt-color); /* Add bottom border */
+    font-weight: var(--bold);
+    font-size: clamp(0.75em, 1.5vw, 2.5em);
+    transition: all 300ms ease-in-out;
+    text-transform: uppercase;
+    background-color: rgb(255, 254, 254); /* Set background color to white */
+    color: var(--txt-color);
+    transform: scale(0.9);
+}
+
+input:hover,
+input:active,
+input:focus {
+    background-color: var(--contrast);
+    transform: scale(1);
+    outline: black; /* Remove default outline on focus */
+    border-bottom: 1px solid var(--contrast); /* Change bottom border color on focus */
+}
+
+/* Style for the search input text color */
+#search {
+    color: black;
+}
+
+
+/*      Header Styles      */
+header{
+    background-color: var(--bg-color);
+}
+
+header ul{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style-type: none;
+}
+
+header li a{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    color: var(--txt-color);
+    font-family: var(--font);
+    font-weight: var(--light);
+}
+
+header li img{
+    max-width: 48px;
+    width: 10vw;
+    min-width: 20px;
+}
+
+header li span{
+    font-size: clamp(0.5em, 1.5vw, 5em);
+}
+
+/* Scroll bar styles */
+body::-webkit-scrollbar {
+    width: 12px; /* Set the width of the scroll bar */
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: black; /* Set the color of the scroll thumb to black */
+    border-radius: 6px; /* Add border-radius for rounded corners */
+}
+
+body::-webkit-scrollbar-track {
+    background-color: var(--bg-color); /* Set the color of the scroll track */
+}
+
+.head {
+    text-align: center;
+    padding: 20px; /* Add padding for better appearance */
+}
+
+.head h1 {
+    margin: 0; /* Remove default margin for h1 */
+}
+
+
+/* Style for the search button */
+form button {
+    background-color: var(--contrast); /* Set the background color of the button */
+    color: rgb(255, 255, 255); /* Set the text color of the button */
+    padding: 5px 15px; /* Add padding for better appearance */
+    border-radius: 5px; /* Add border-radius for rounded corners */
+    cursor: pointer; /* Add pointer cursor on hover */
+    transition: background-color 0.3s ease-in-out; /* Add transition for smooth effect */
+}
+
+/* Hover effect for the search button */
+form button:hover {
+    background-color: var(--txt-color); /* Change the background color on hover */
+}
+
+/* Movie Posters */
+.poster {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.poster a {
+    margin: 10px; /* Add margin between movie images */
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out; /* Add transition for smooth effect */
+}
+
+.poster a:hover {
+    transform: scale(1.1); /* Scale up the image on hover */
+}
+
+.poster img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px; /* Add border-radius for rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+}
+
+
+/* Search Results Page Styles */
+
+/* Increase the size of the images */
+.hero img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px; /* Add border-radius for rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+    transition: transform 0.3s ease-in-out; /* Add transition for smooth effect */
+}
+
+/* Apply the same hover effect as on the main page */
+.hero img:hover {
+    transform: scale(1.1); /* Scale up the image on hover */
+}
+
+/* Center the content in the data-container */
+.data-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.data-container h1 {
+    margin-bottom: 20px; /* Add space between the title and images */
+}
+
+
+/* Dashboard Styles */
+
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(45deg, #08001f, #30197d);
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+}
+
+.chart {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background: linear-gradient(45deg, #08001f, #2e1197);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+h1, h2 {
+    margin-bottom: 20px;
+}
+
+/* Ratings Distribution Chart */
+#ratingsDistributionChart {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+/* Ratings vs. Revenue Chart */
+#imdb-ratings-vs-gross-revenue-chart {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+/* Votes vs. Ratings Chart */
+#votes-vs-ratings-chart {
+    max-width: 100%;
+    height: auto;
+}
+
+
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+#map {
+    height: 100vh;
+}
+
+/* Add this to your existing CSS file or style tag */
+.black-marker {
+    color: black; /* Set the color to black */
+}

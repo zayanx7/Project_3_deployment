@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMDB Data Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- Add your preferred CSS styles for the histogram container here -->
+
+    <!-- Add Plotly.js library for creating charts -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+
+    <script>
+        var ratingsData = {{ ratings_distribution_data|tojson }};
+    </script>
+
+    <script>
+        var RevenueData = {{ ratings_vs_revenue_data|tojson}}
+    </script>
+
+    <script>
+        var votes = {{ votes_vs_ratings_data|tojson}};
+    </script>
+
+</head>
+<body>
+
+    <header>
+        <nav class="header__navBar">
+            <ul>
+                <li>
+                    <a href="/">
+                        <img src="https://cdn0.iconfinder.com/data/icons/cinema-color-line-1/64/movie_film_cinema_search-512.png"/>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.kaggle.com/datasets/harshitshankhdhar/imdb-dataset-of-top-1000-movies-and-tv-shows" >
+                        <img src="https://cdn4.iconfinder.com/data/icons/logos-and-brands/512/189_Kaggle_logo_logos-512.png"/>
+                        <span>Kaggle dataset</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/dashboard">
+                        <img src="https://cdn1.iconfinder.com/data/icons/charts-analytics/128/Charts_Analytics_kpi_dashboard_report_3_bar_line-512.png"/>
+                        <span>Chart Visualisiation</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/map">
+                    <img src="https://cdn3.iconfinder.com/data/icons/map-navigation-8/512/z5-map-location-pin-512.png"/>
+                        <span>Geo api Map</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/zayanx7/Project_3">
+                        <img src="https://cdn1.iconfinder.com/data/icons/logotypes/32/github-512.png"/>
+                        <span>Our Github</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+
+
+
+
+
+
+
+    <div class="chart">
+        <h1>IMDb Dashboard</h1>
+
+        <h2>Ratings Distribution</h2>
+        <canvas id="ratingsDistributionChart"></canvas>
+
+        <h2>Ratings vs. Revenue</h2>
+        <!-- Add your table for Ratings vs. Revenue here -->
+        <div id="imdb-ratings-vs-gross-revenue-chart"></div>
+        <h2>Votes vs. Ratings</h2>
+        <!-- Add your table for Votes vs. Ratings here -->
+        <svg id="votes-vs-ratings-chart" width="600" height="300"></svg>
+    </div>    
+
+</body>
+</html>

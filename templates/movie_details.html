@@ -1,0 +1,71 @@
+<!-- movie_details.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ movie_data.Title }} Details</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <nav class="header__navBar">
+            <ul>
+                <li>
+                    <a href="/">
+                        <img src="https://cdn0.iconfinder.com/data/icons/cinema-color-line-1/64/movie_film_cinema_search-512.png"/>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.kaggle.com/datasets/harshitshankhdhar/imdb-dataset-of-top-1000-movies-and-tv-shows" >
+                        <img src="https://cdn4.iconfinder.com/data/icons/logos-and-brands/512/189_Kaggle_logo_logos-512.png"/>
+                        <span>Kaggle dataset</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/dashboard">
+                        <img src="https://cdn1.iconfinder.com/data/icons/charts-analytics/128/Charts_Analytics_kpi_dashboard_report_3_bar_line-512.png"/>
+                        <span>Chart Visualisiation</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.imdb.com/">
+                    <img src="https://cdn4.iconfinder.com/data/icons/logos-and-brands/512/171_Imdb_logo_logos-512.png"/>
+                        <span>Imdb WebPage</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/zayanx7/Project_3">
+                        <img src="https://cdn1.iconfinder.com/data/icons/logotypes/32/github-512.png"/>
+                        <span>Our Github</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+
+
+
+
+
+
+    <div class="hero">
+
+        <div class="data-container">
+            <img src="{{ movie_data.Poster_Link }}" alt="{{ movie_data.Series_Title }}">   
+            <h1>{{ movie_data.Series_Title }} Details</h1>
+            <p>{{ movie_data.Overview }}</p>
+            <p>Released: {{ movie_data.Released_Year }}</p>
+            <p>Genre: {{ movie_data.Genre }}</p>
+            <p>Director: {{ movie_data.Director }}</p>
+            <p>Runtime: {{ movie_data.Runtime }}</p>
+            <!-- Add more details as needed -->
+
+            <a href="/">Back to Search</a>
+        </div>
+    </div>
+</body>
+</html>
+
