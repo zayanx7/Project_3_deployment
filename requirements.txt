@@ -8,7 +8,7 @@ click==8.1.7
     # via flask
 colorama==0.4.6
     # via click
-flask==2.2.2
+flask==2.0.1
     # via -r requirements.in
 greenlet==3.0.1
     # via sqlalchemy
